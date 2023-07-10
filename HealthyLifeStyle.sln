@@ -5,6 +5,10 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyLifeStyle.Web", "HealthyLifeStyle.Web\HealthyLifeStyle.Web.csproj", "{6F9EE562-17CE-40A6-94A7-B447FC328466}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyLifeStyle.Types", "HealthyLifeStyle.Types\HealthyLifeStyle.Types.csproj", "{B17895D1-1298-45AB-AA51-DA9AB8C8CF7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyLifeStyle.Business", "HealthyLifeStyle.Business\HealthyLifeStyle.Business.csproj", "{F06F187F-E9AE-42FE-924C-90AD1E8B0068}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6F9EE562-17CE-40A6-94A7-B447FC328466}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F9EE562-17CE-40A6-94A7-B447FC328466}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F9EE562-17CE-40A6-94A7-B447FC328466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17895D1-1298-45AB-AA51-DA9AB8C8CF7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17895D1-1298-45AB-AA51-DA9AB8C8CF7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17895D1-1298-45AB-AA51-DA9AB8C8CF7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17895D1-1298-45AB-AA51-DA9AB8C8CF7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F06F187F-E9AE-42FE-924C-90AD1E8B0068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F06F187F-E9AE-42FE-924C-90AD1E8B0068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F06F187F-E9AE-42FE-924C-90AD1E8B0068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F06F187F-E9AE-42FE-924C-90AD1E8B0068}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

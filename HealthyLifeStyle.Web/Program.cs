@@ -1,7 +1,20 @@
+using HealthyLifeStyle.Business.Interfaces;
+using HealthyLifeStyle.Business.Services;
+using HealthyLifeStyle.Types.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//yeni servsler eklenebilir.
+builder.Services.AddScoped<IBloodGroupService, BloodGroupService>();
+
+
+
+var connectionString = builder.Configuration.GetConnectionString("db");
+builder.Services.AddDbContext<HealthyLifeStyleDbContext>(opt => opt.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
