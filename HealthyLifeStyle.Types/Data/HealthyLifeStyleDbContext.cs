@@ -11,6 +11,9 @@ namespace HealthyLifeStyle.Types.Data
     public class HealthyLifeStyleDbContext : DbContext
     {
         public DbSet<BloodGroup> BloodGroup { get; set; }
+        public DbSet<Hospital> Hospital { get; set; }
+        public DbSet<NeedForBlood> NeedForBlood { get; set; }
+        public DbSet<User> User { get; set; }
 
         public HealthyLifeStyleDbContext(DbContextOptions<HealthyLifeStyleDbContext> options) : base(options)
         {

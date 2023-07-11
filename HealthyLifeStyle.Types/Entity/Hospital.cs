@@ -7,12 +7,20 @@ using System.Threading.Tasks;
 
 namespace HealthyLifeStyle.Types.Entity
 {
-    public class BloodGroup
+    public class Hospital
     {
-        [Key] 
+        [Key]
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }    
+        [StringLength(150)]
+        public string Name { get; set; }
+
+        [StringLength(50)]
+        public string Phone { get; set; }
+
+        [StringLength(250)]
+        public string Address { get; set; }
+
     }
 }

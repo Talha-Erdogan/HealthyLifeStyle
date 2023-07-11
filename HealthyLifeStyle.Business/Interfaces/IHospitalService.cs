@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace HealthyLifeStyle.Business.Interfaces
 {
-    public interface IBloodGroupService
+    public interface IHospitalService
     {
-        List<BloodGroup> GetAll();
-        BloodGroup GetById(int id);
+        List<Hospital> GetAll();
+        Hospital GetById(int id);
+        int Add(Hospital hospital);
+        int Update(Hospital hospital);
     }
 }

@@ -22,5 +22,11 @@ namespace HealthyLifeStyle.Business.Services
         {
             return _dbContext.BloodGroup.ToList();
         }
+
+        public BloodGroup GetById(int id)
+        {
+            return _dbContext.BloodGroup.FirstOrDefault(x=>x.Id == id);
+        }
+
     }
 }

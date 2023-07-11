@@ -10,6 +10,9 @@ builder.Services.AddControllersWithViews();
 
 //yeni servsler eklenebilir.
 builder.Services.AddScoped<IBloodGroupService, BloodGroupService>();
+builder.Services.AddScoped<IHospitalService, HospitalService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<INeedForBloodService, NeedForBloodService>();
 
 
 
