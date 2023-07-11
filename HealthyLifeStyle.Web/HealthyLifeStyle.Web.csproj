@@ -15,4 +15,9 @@
     <ProjectReference Include="..\HealthyLifeStyle.Types\HealthyLifeStyle.Types.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\theme\vendors\datetime\fonts\" />
+    <Folder Include="wwwroot\theme\vendors\gijgo_datetimepicker\" />
+  </ItemGroup>
+
 </Project>
