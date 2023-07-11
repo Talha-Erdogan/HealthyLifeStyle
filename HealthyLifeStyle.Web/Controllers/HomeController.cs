@@ -1,5 +1,6 @@
 ﻿using HealthyLifeStyle.Business.Interfaces;
 using HealthyLifeStyle.Business.Services;
+using HealthyLifeStyle.Types.Entity;
 using HealthyLifeStyle.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -19,8 +20,10 @@ namespace HealthyLifeStyle.Web.Controllers
 
         public IActionResult Index()
         {
-            var result = _bloodGroupService.GetAll();
-            return View(result);
+            //var result = _bloodGroupService.GetAll();
+            var id =  HttpContext.Session.GetString("HealthyLifeStyle_UserId");
+            var userName = HttpContext.Session.GetString("HealthyLifeStyle_UserName");
+            return View();
         }
 
         public IActionResult Privacy()

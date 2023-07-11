@@ -36,6 +36,11 @@ namespace HealthyLifeStyle.Web.Controllers
                 }
 
                 //todo :  session ekleme işlemleri yapılacak.
+                if (string.IsNullOrEmpty(HttpContext.Session.GetString("HealthyLifeStyle_UserId")))
+                {
+                    HttpContext.Session.SetString("HealthyLifeStyle_UserId", user.Id.ToString());
+                    HttpContext.Session.SetString("HealthyLifeStyle_UserName", user.Name.ToString());
+                }
                 return RedirectToAction("Index", "Home");
             }
             else
