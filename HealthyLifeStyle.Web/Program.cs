@@ -19,6 +19,9 @@ builder.Services.AddScoped<INeedForBloodService, NeedForBloodService>();
 var connectionString = builder.Configuration.GetConnectionString("db");
 builder.Services.AddDbContext<HealthyLifeStyleDbContext>(opt => opt.UseSqlServer(connectionString));
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(option => { option.IdleTimeout = TimeSpan.FromMinutes(60); });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,6 +32,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSession();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -38,6 +43,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=User}/{action=Login}/{id?}");
 
 app.Run();
