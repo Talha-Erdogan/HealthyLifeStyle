@@ -69,7 +69,7 @@ namespace HealthyLifeStyle.Business.Services
             var query = from hospital in _dbContext.Set<Hospital>()
                         join needForBlood in _dbContext.Set<NeedForBlood>()
                             on hospital.Id equals needForBlood.HospitalId
-                        where needForBlood.BloodGroupId == bloodId
+                        where needForBlood.BloodGroupId == bloodId && needForBlood.Count>0
                         select hospital;
             return query.ToList();
         }
