@@ -164,6 +164,18 @@
                                 <i class="nav-icon icon-cursor"></i> Hastane Listesi
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/User/AddForHospitalUser">
+                                <i class="nav-icon icon-cursor"></i> Hastane Kullanıcı Ekle
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/User/ListForHospitalUser">
+                                <i class="nav-icon icon-cursor"></i> Hastane Kullanıcı Listesi
+                            </a>
+                        </li>
                     }
 
                     @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == (int)UserType.User)

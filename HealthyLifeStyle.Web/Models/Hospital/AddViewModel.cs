@@ -5,6 +5,8 @@ namespace HealthyLifeStyle.Web.Models.Hospital
     public class AddViewModel
     {
         public int Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
