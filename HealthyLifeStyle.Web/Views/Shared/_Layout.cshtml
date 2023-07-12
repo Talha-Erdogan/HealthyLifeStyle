@@ -87,17 +87,17 @@
                 <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     @*<img class="img-avatar" src="~/theme/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">*@
                     @*<span>Name1 Surname1 (User1) &nbsp;</span>*@
-                   @* @if (SessionHelper.IsAuthenticated)
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")))
                     {
-                        <span style="color:#add9ff;">@SessionHelper.CurrentUser.Name @SessionHelper.CurrentUser.LastName (@SessionHelper.CurrentUser.Id) &nbsp;</span>
-                    }*@
+                        <span style="color:#add9ff;">@Context.Session.GetString("HealthyLifeStyle_User_Name") @Context.Session.GetString("HealthyLifeStyle_User_LastName") &nbsp;</span>
+                    }
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
 
                     @*<a class="dropdown-item" href="/Personnel/DisplayProfile">
                         <i class="fa fa-shield"></i> User Profile
                     </a>*@
-                    <a class="dropdown-item" href="/Personnel/Logout">
+                    <a class="dropdown-item" href="/User/Logout">
                         <i class="fa fa-lock"></i> Logout
                     </a>
                 </div>

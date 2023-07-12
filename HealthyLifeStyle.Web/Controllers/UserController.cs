@@ -1,4 +1,5 @@
 ﻿using HealthyLifeStyle.Business.Interfaces;
+using HealthyLifeStyle.Types.Entity;
 using HealthyLifeStyle.Web.Models.Common;
 using HealthyLifeStyle.Web.Models.User;
 using Microsoft.AspNetCore.Authentication;
@@ -82,6 +83,13 @@ namespace HealthyLifeStyle.Web.Controllers
         {
             
             return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Clear(); 
+            return RedirectToAction("Login");
         }
 
     }
