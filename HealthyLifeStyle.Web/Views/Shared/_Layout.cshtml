@@ -149,6 +149,39 @@
                         </li>
                     }*@
 
+
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == 1)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Hospital/Add">
+                                <i class="nav-icon icon-cursor"></i> Hastane Ekle
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Hospital/List">
+                                <i class="nav-icon icon-cursor"></i> Hastane Listesi
+                            </a>
+                        </li>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == 2)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/Index">
+                                <i class="nav-icon icon-cursor"></i> Hastaneler
+                            </a>
+                        </li>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == 3)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/NeedForBlood/List">
+                                <i class="nav-icon icon-cursor"></i> Kan İhtiyacı
+                            </a>
+                        </li>
+                    }
                   
 
 

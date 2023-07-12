@@ -20,9 +20,17 @@ namespace HealthyLifeStyle.Web.Controllers
 
         public IActionResult Index()
         {
-            //var result = _bloodGroupService.GetAll();
-            var id =  HttpContext.Session.GetString("HealthyLifeStyle_UserId");
-            var userName = HttpContext.Session.GetString("HealthyLifeStyle_UserName");
+            var id = HttpContext.Session.GetString("HealthyLifeStyle_User_Id");
+            var userType = HttpContext.Session.GetInt32("HealthyLifeStyle_User_UserType");
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("HealthyLifeStyle_User_Id")))
+            {
+                return RedirectToAction("Login", "User");
+            }
+            if (HttpContext.Session.GetInt32("HealthyLifeStyle_User_UserType") != 2)
+            {
+                return RedirectToAction("NotAuthorized", "User");
+            }
+                            
             return View();
         }
 

@@ -2,7 +2,7 @@
 
 namespace HealthyLifeStyle.Web.Controllers
 {
-    public class HospitalController : Controller
+    public class NeedForBloodController : Controller
     {
         public IActionResult List()
         {
@@ -10,7 +10,7 @@ namespace HealthyLifeStyle.Web.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            if (HttpContext.Session.GetInt32("HealthyLifeStyle_User_UserType") != 1)
+            if (HttpContext.Session.GetInt32("HealthyLifeStyle_User_UserType") != 3)
             {
                 return RedirectToAction("NotAuthorized", "User");
             }
