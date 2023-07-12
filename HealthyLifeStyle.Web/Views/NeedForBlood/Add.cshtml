@@ -2,55 +2,44 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Hastane Güncelleme";
+    ViewData["Title"] = "Kan İhtiyacı Ekle";
 }
 
-@model HealthyLifeStyle.Web.Models.Hospital.AddViewModel
-
+@model HealthyLifeStyle.Web.Models.NeedForBlood.AddViewModel
 
 
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <strong>Hastane Güncelle</strong>
+                <strong>Kan İhtiyacı Ekle</strong>
             </div>
             <div class="card-body">
 
-                @using (Html.BeginForm("Edit", "Hospital", FormMethod.Post, new { @class = "form-horizontal input-sm" }))
+                @using (Html.BeginForm("Add", "NeedForBlood", FormMethod.Post, new { @class = "form-horizontal input-sm" }))
                 {
-                    @Html.HiddenFor(m => m.Id)
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Name</label>
-                        <div class="col-md-9">
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
-                            @Html.ValidationMessageFor(m => m.Name, null, new { @class = "help-block text-danger" })
-                        </div>
-                    </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Phone</label>
+                        <label class="col-md-2 col-form-label">Code</label>
                         <div class="col-md-9">
-                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control input-sm" })
-                            @Html.ValidationMessageFor(m => m.Phone, null, new { @class = "help-block text-danger" })
+                            @Html.DropDownListFor(m => m.BloodGroupId, Model.BloodGroupSelectList, "Select", new { @class = "form-control form-control-sm" })
+                            @Html.ValidationMessageFor(m => m.BloodGroupId, null, new { @class = "help-block text-danger" })
                         </div>
                     </div>
-
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Address</label>
+                        <label class="col-md-2 col-form-label">Count</label>
                         <div class="col-md-9">
-                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control input-sm" })
-                            @Html.ValidationMessageFor(m => m.Address, null, new { @class = "help-block text-danger" })
+                            @Html.TextBoxFor(m => m.Count, new { @class = "form-control input-sm",@type = "number" })
+                            @Html.ValidationMessageFor(m => m.Count, null, new { @class = "help-block text-danger" })
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <div class="col-md-12">
                             <button class="btn btn-sm btn-primary" type="submit" id="btnSubmit">
                                 <i class="fa fa-dot-circle-o"></i> Save
                             </button>
                             &nbsp;
-                            <a class="btn btn-sm btn-danger" href="~/Hospital/List">
+                            <a class="btn btn-sm btn-danger" href="~/NeedForBlood/List">
                                 <i class="fa fa-ban"></i> Cancel
                             </a>
                         </div>
@@ -84,6 +73,3 @@
     </div>
     <!-- /.col-->
 </div>
-
-
-

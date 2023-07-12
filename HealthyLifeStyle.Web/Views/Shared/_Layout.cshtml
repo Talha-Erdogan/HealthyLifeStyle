@@ -178,8 +178,14 @@
                     @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == (int)UserType.Hospital)
                     {
                         <li class="nav-item">
+                            <a class="nav-link" href="~/NeedForBlood/Add">
+                                <i class="nav-icon icon-cursor"></i> Kan İhtiyacı Ekle
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="~/NeedForBlood/List">
-                                <i class="nav-icon icon-cursor"></i> Kan İhtiyacı
+                                <i class="nav-icon icon-cursor"></i> Kan İhtiyaç Listesi
                             </a>
                         </li>
                     }
