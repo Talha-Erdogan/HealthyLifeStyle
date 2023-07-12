@@ -98,6 +98,55 @@ namespace HealthyLifeStyle.Web.Controllers
             return RedirectToAction("Login");
         }
 
+
+        public IActionResult Add()
+        {
+            AddViewModel model = new AddViewModel();
+            model.BloodGroupSelectList = GetBloodGroupSelectList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Add(AddViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.BloodGroupSelectList = GetBloodGroupSelectList();
+                return View(model);
+            }
+            var existUser = _userService.GetByUserName(model.UserName);
+            if (existUser != null)
+            {
+                ViewBag.ErrorMessage = "Mevcut UserName. Farklı bir username girebilir misiniz ?";
+                model.BloodGroupSelectList = GetBloodGroupSelectList();
+                return View(model);
+            }
+            model.BloodGroupSelectList = GetBloodGroupSelectList();
+
+            HealthyLifeStyle.Types.Entity.User user = new Types.Entity.User()
+            {
+                Name = model.Name,
+                LastName = model.LastName,
+                BloodGroupId = model.BloodGroupId,
+                GSM = model.GSM,
+                UserName = model.UserName,
+                Password = model.Password,
+                UserType = (int)UserType.User
+            };
+
+            try
+            {
+                _userService.Add(user);
+                return RedirectToAction(nameof(UserController.Login));
+            }
+            catch
+            {
+                ViewBag.ErrorMessage = "Not Saved.";
+                return View(model);
+            }
+        }
+
+
         public IActionResult ListForHospitalUser()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("HealthyLifeStyle_User_Id")))

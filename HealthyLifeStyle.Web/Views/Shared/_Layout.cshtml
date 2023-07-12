@@ -201,6 +201,15 @@
                             </a>
                         </li>
                     }
+
+                    @if (string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/User/Add">
+                                <i class="nav-icon icon-cursor"></i> Kaydol
+                            </a>
+                        </li>
+                    }
                   
 
 
