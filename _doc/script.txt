@@ -1,0 +1,125 @@
+﻿USE [HealthyLifeStyle]
+GO
+/****** Object:  Table [dbo].[BloodGroup]    Script Date: 13.07.2023 01:31:30 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BloodGroup](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_BloodGroup] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Hospital]    Script Date: 13.07.2023 01:31:30 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Hospital](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](150) NOT NULL,
+	[Phone] [nvarchar](50) NOT NULL,
+	[Address] [nvarchar](250) NOT NULL,
+ CONSTRAINT [PK_Hospital] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NeedForBlood]    Script Date: 13.07.2023 01:31:30 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NeedForBlood](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[BloodGroupId] [int] NOT NULL,
+	[HospitalId] [int] NOT NULL,
+	[Count] [int] NOT NULL,
+ CONSTRAINT [PK_NeedForBlood] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[User]    Script Date: 13.07.2023 01:31:30 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[User](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](150) NOT NULL,
+	[LastName] [nvarchar](150) NOT NULL,
+	[BloodGroupId] [int] NOT NULL,
+	[GSM] [nvarchar](50) NULL,
+	[UserName] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar](50) NOT NULL,
+	[UserType] [int] NOT NULL,
+	[HospitalId] [int] NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[BloodGroup] ON 
+GO
+INSERT [dbo].[BloodGroup] ([Id], [Name]) VALUES (1, N'AB Rh+')
+GO
+INSERT [dbo].[BloodGroup] ([Id], [Name]) VALUES (2, N'AB Rh-')
+GO
+INSERT [dbo].[BloodGroup] ([Id], [Name]) VALUES (3, N'A Rh+')
+GO
+INSERT [dbo].[BloodGroup] ([Id], [Name]) VALUES (4, N'A Rh-')
+GO
+INSERT [dbo].[BloodGroup] ([Id], [Name]) VALUES (5, N'B Rh+')
+GO
+INSERT [dbo].[BloodGroup] ([Id], [Name]) VALUES (6, N'B Rh-')
+GO
+INSERT [dbo].[BloodGroup] ([Id], [Name]) VALUES (7, N'O Rh+')
+GO
+INSERT [dbo].[BloodGroup] ([Id], [Name]) VALUES (8, N'O Rh-')
+GO
+SET IDENTITY_INSERT [dbo].[BloodGroup] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Hospital] ON 
+GO
+INSERT [dbo].[Hospital] ([Id], [Name], [Phone], [Address]) VALUES (1, N'Merkez Prime Hastanesi', N'444 6 441', N'Yenikent, 2424. Sk. No: 25/2, 41400 Gebze/Kocaeli')
+GO
+INSERT [dbo].[Hospital] ([Id], [Name], [Phone], [Address]) VALUES (2, N'Medical Park Gebze', N'444 44 84', N'Güzeller, Kavak Cd. No:5, 41400 Gebze/Kocaeli')
+GO
+INSERT [dbo].[Hospital] ([Id], [Name], [Phone], [Address]) VALUES (3, N'Özel Yüzyıl Hastanesi Gebze', N'642 83 83', N'Sultan Orhan, Mahallesi, İlyasbey Cd. No:38, 41400 Gebze/Kocaeli')
+GO
+SET IDENTITY_INSERT [dbo].[Hospital] OFF
+GO
+SET IDENTITY_INSERT [dbo].[NeedForBlood] ON 
+GO
+INSERT [dbo].[NeedForBlood] ([Id], [BloodGroupId], [HospitalId], [Count]) VALUES (1, 4, 1, 5)
+GO
+INSERT [dbo].[NeedForBlood] ([Id], [BloodGroupId], [HospitalId], [Count]) VALUES (2, 3, 1, 5)
+GO
+INSERT [dbo].[NeedForBlood] ([Id], [BloodGroupId], [HospitalId], [Count]) VALUES (3, 4, 2, 3)
+GO
+INSERT [dbo].[NeedForBlood] ([Id], [BloodGroupId], [HospitalId], [Count]) VALUES (4, 4, 3, 4)
+GO
+SET IDENTITY_INSERT [dbo].[NeedForBlood] OFF
+GO
+SET IDENTITY_INSERT [dbo].[User] ON 
+GO
+INSERT [dbo].[User] ([Id], [Name], [LastName], [BloodGroupId], [GSM], [UserName], [Password], [UserType], [HospitalId]) VALUES (1, N'Admin', N'Profili', 1, N'5554443322', N'admin', N'123', 1, NULL)
+GO
+INSERT [dbo].[User] ([Id], [Name], [LastName], [BloodGroupId], [GSM], [UserName], [Password], [UserType], [HospitalId]) VALUES (2, N'Talha', N'Erdoğan', 1, N'5559998877', N'talha', N'123', 3, 1)
+GO
+INSERT [dbo].[User] ([Id], [Name], [LastName], [BloodGroupId], [GSM], [UserName], [Password], [UserType], [HospitalId]) VALUES (3, N'Medical', N'Park', 4, N'5556667788', N'medical', N'123', 3, 2)
+GO
+INSERT [dbo].[User] ([Id], [Name], [LastName], [BloodGroupId], [GSM], [UserName], [Password], [UserType], [HospitalId]) VALUES (4, N'User', N'Profili', 4, N'5551112233', N'user', N'123', 2, NULL)
+GO
+INSERT [dbo].[User] ([Id], [Name], [LastName], [BloodGroupId], [GSM], [UserName], [Password], [UserType], [HospitalId]) VALUES (5, N'Yüzyıl Hast', N'Profili', 3, N'5557775544', N'yüzyil', N'123', 3, 3)
+GO
+SET IDENTITY_INSERT [dbo].[User] OFF
+GO
