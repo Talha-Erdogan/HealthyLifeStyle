@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Localization
+﻿@using HealthyLifeStyle.Web.Models.Common;
+@using Microsoft.AspNetCore.Localization
 @using Microsoft.Extensions.Localization
 
 
@@ -150,7 +151,7 @@
                     }*@
 
 
-                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == 1)
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == (int)UserType.Admin)
                     {
                         <li class="nav-item">
                             <a class="nav-link" href="~/Hospital/Add">
@@ -165,7 +166,7 @@
                         </li>
                     }
 
-                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == 2)
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == (int)UserType.User)
                     {
                         <li class="nav-item">
                             <a class="nav-link" href="~/Home/Index">
@@ -174,7 +175,7 @@
                         </li>
                     }
 
-                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == 3)
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("HealthyLifeStyle_User_Id")) && Context.Session.GetInt32("HealthyLifeStyle_User_UserType") == (int)UserType.Hospital)
                     {
                         <li class="nav-item">
                             <a class="nav-link" href="~/NeedForBlood/List">

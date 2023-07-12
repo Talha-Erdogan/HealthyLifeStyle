@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HealthyLifeStyle.Web.Models.Common;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HealthyLifeStyle.Web.Controllers
 {
@@ -10,7 +11,7 @@ namespace HealthyLifeStyle.Web.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            if (HttpContext.Session.GetInt32("HealthyLifeStyle_User_UserType") != 3)
+            if (HttpContext.Session.GetInt32("HealthyLifeStyle_User_UserType") != (int)UserType.Hospital)
             {
                 return RedirectToAction("NotAuthorized", "User");
             }

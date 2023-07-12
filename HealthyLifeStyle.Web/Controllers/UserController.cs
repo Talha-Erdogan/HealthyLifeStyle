@@ -1,4 +1,5 @@
 ﻿using HealthyLifeStyle.Business.Interfaces;
+using HealthyLifeStyle.Web.Models.Common;
 using HealthyLifeStyle.Web.Models.User;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -55,15 +56,15 @@ namespace HealthyLifeStyle.Web.Controllers
                     }
                 }
 
-                if (user.UserType == 1) 
+                if (user.UserType == (int)UserType.Admin) 
                 {
                     return RedirectToAction("List", "Hospital"); // admin profili
                 }
-                else if (user.UserType == 2)
+                else if (user.UserType == (int)UserType.User)
                 {
                     return RedirectToAction("Index", "Home"); // kullanıcı profili
                 }
-                else if (user.UserType == 3)
+                else if (user.UserType == (int)UserType.Hospital)
                 {
                     return RedirectToAction("List", "NeedForBlood"); // hastane kullanıcı profili
                 }

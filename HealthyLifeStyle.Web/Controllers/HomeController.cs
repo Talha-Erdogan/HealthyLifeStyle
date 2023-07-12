@@ -2,6 +2,7 @@
 using HealthyLifeStyle.Business.Services;
 using HealthyLifeStyle.Types.Entity;
 using HealthyLifeStyle.Web.Models;
+using HealthyLifeStyle.Web.Models.Common;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -26,7 +27,7 @@ namespace HealthyLifeStyle.Web.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            if (HttpContext.Session.GetInt32("HealthyLifeStyle_User_UserType") != 2)
+            if (HttpContext.Session.GetInt32("HealthyLifeStyle_User_UserType") != (int)UserType.User)
             {
                 return RedirectToAction("NotAuthorized", "User");
             }
